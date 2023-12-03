@@ -15,7 +15,7 @@ import com.example.todolist.writers.TodoListWriter;
 import java.util.Map;
 import java.util.Objects;
 
-public class CadastrarTodoListActivity extends AppCompatActivity {
+public class CreateTodoListActivity extends AppCompatActivity {
     private TodoListWriter writer;
     private TodoListReader reader;
     private Button buttonCreateTodoList;
@@ -26,7 +26,7 @@ public class CadastrarTodoListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_todo_list);
+        setContentView(R.layout.activity_create_todo_list);
 
         this.reader = new TodoListReader(this.getApplicationContext());
         this.writer = new TodoListWriter(this.getApplicationContext());

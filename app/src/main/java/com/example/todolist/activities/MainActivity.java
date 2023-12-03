@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements IOnCardClickListe
     }
 
     private void goToCreateTodoListActivity() {
-        Intent intent = new Intent(this, CadastrarTodoListActivity.class);
+        Intent intent = new Intent(this, CreateTodoListActivity.class);
         startActivity(intent);
     }
 
