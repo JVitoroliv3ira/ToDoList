@@ -66,6 +66,7 @@ public class CreateTodoListActivity extends AppCompatActivity {
         Map<Integer, TodoList> entities = this.reader.getEntities();
         entities.put(list.getId(), list);
         this.writer.saveEntities(entities);
+        Toast.makeText(this.getApplicationContext(), "Lista cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
         this.goToMainActivity();
     }
 
