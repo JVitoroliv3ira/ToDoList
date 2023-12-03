@@ -2,6 +2,7 @@ package com.example.todolist.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todolist.R;
 import com.example.todolist.adapters.TodoListAdapter;
+import com.example.todolist.interfaces.IOnCardClickListener;
 import com.example.todolist.models.TodoList;
 import com.example.todolist.readers.TodoListReader;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IOnCardClickListener {
 
     private TodoListReader reader;
     private List<TodoList> list;
@@ -50,11 +52,18 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         this.todoListReciclerView.setLayoutManager(manager);
         TodoListAdapter adapter = new TodoListAdapter(this.list);
+        adapter.setOnCardClickListener(this);
         this.todoListReciclerView.setAdapter(adapter);
     }
 
     private void goToCreateTodoListActivity() {
         Intent intent = new Intent(this, CadastrarTodoListActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onCardClick(int position) {
+        TodoList list = this.list.get(position);
+        Toast.makeText(this.getApplicationContext(), list.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }
