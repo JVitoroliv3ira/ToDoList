@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ToDoList</string>
     <string name="create_todo_list_page_title">ToDoList/Cadastrar Lista</string>
+    <string name="detail_todo_list_page_title">ToDoList/Detalhes da Lista</string>
 
 
     <string name="todo_list_title_label">Título</string>
