@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity implements IOnCardClickListe
     @Override
     public void onCardClick(int position) {
         TodoList list = this.list.get(position);
-        Toast.makeText(this.getApplicationContext(), list.getTitle(), Toast.LENGTH_SHORT).show();
+        this.goToDetailTodoListActivity(list.getId());
+    }
+
+    private void goToDetailTodoListActivity(Integer listId) {
+        Intent intent = new Intent(this, DetailTodoListActivity.class);
+        intent.putExtra("listId", listId);
+        startActivity(intent);
     }
 }
