@@ -27,4 +27,8 @@ public interface IReader<K, E> {
             }
         }
     }
+
+    default E getEntityById(K id) {
+        return this.getEntities().get(id);
+    }
 }
