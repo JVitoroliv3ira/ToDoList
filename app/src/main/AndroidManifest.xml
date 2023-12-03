@@ -21,9 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CreateTodoListActivity">
-
-        </activity>
+        <activity android:name=".activities.CreateTodoListActivity" />
+        <activity android:name=".activities.DetailTodoListActivity" />
     </application>
 
 </manifest>
