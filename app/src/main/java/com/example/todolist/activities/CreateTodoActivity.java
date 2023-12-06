@@ -53,7 +53,7 @@ public class CreateTodoActivity extends AppCompatActivity {
     private void handleCreateClick() {
         String title = this.editTextTitle.getText().toString();
         String description = this.editTextDescription.getText().toString();
-        Boolean priority = this.radioButtonPriorityTrue.isSelected();
+        Boolean priority = this.radioButtonPriorityTrue.isChecked();
 
         if (Objects.isNull(title) || title.trim().isEmpty()) {
             Toast.makeText(
@@ -78,8 +78,8 @@ public class CreateTodoActivity extends AppCompatActivity {
                 id,
                 title,
                 description,
-                priority,
                 false,
+                priority,
                 todoListId
         );
         Map<Integer, Todo> entities = this.reader.getEntities();
