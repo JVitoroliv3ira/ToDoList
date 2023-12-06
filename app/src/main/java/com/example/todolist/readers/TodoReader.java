@@ -51,7 +51,8 @@ public class TodoReader implements IReader<Integer, Todo> {
                         object.getString("title"),
                         object.getString("description"),
                         object.getBoolean("finished"),
-                        object.getBoolean("priority")
+                        object.getBoolean("priority"),
+                        object.getInt("todoList")
                 );
                 todos.put(todo.getId(), todo);
             }

@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.example.todolist.interfaces.IWriter;
 import com.example.todolist.models.Todo;
-import com.example.todolist.models.TodoList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +39,7 @@ public class TodoWriter implements IWriter<Integer, Todo> {
         object.put("description", entity.getDescription());
         object.put("finished", entity.getFinished());
         object.put("priority", entity.getPriority());
+        object.put("todoList", entity.getTodoList());
         return object.toString();
     }
 
