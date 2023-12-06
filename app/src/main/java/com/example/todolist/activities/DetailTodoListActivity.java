@@ -12,6 +12,7 @@ import com.example.todolist.R;
 import com.example.todolist.models.TodoList;
 import com.example.todolist.readers.TodoListReader;
 import com.example.todolist.writers.TodoListWriter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Map;
 
@@ -19,6 +20,8 @@ public class DetailTodoListActivity extends AppCompatActivity {
     private EditText editTextTodoListTitle;
     private EditText editTextTodoListDescription;
     private ImageButton deleteTodoListButton;
+
+    private FloatingActionButton createTodoButton;
     private TodoListReader todoListReader;
     private TodoListWriter todoListWriter;
     private TodoList list;
@@ -40,6 +43,9 @@ public class DetailTodoListActivity extends AppCompatActivity {
 
          this.deleteTodoListButton = this.findViewById(R.id.delete_todo_list_button);
          this.deleteTodoListButton.setOnClickListener(v -> this.handleDeleteTodoListClick());
+
+         this.createTodoButton = this.findViewById(R.id.button_go_to_create_todo);
+         this.createTodoButton.setOnClickListener(v -> this.goToCreateTodoActivity());
     }
 
     private void handleDeleteTodoListClick() {
@@ -52,5 +58,11 @@ public class DetailTodoListActivity extends AppCompatActivity {
 
     private void goToMainActivity() {
         this.finish();
+    }
+
+    private void goToCreateTodoActivity() {
+        Intent intent = new Intent(this, CreateTodoActivity.class);
+        intent.putExtra("listId", this.list.getId());
+        startActivity(intent);
     }
 }
