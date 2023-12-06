@@ -2,12 +2,21 @@
     <string name="app_name">ToDoList</string>
     <string name="create_todo_list_page_title">ToDoList/Cadastrar Lista</string>
     <string name="detail_todo_list_page_title">ToDoList/Detalhes da Lista</string>
+    <string name="create_todo_page_title">ToDoList/Cadastrar Tarefa</string>
 
 
     <string name="todo_list_title_label">Título</string>
     <string name="todo_list_title_hint">Informe um título</string>
     <string name="todo_list_description_label">Descrição</string>
     <string name="todo_list_description_hint">Informe uma descrição</string>
+
+    <string name="todo_title_label">Título</string>
+    <string name="todo_title_hint">Informe um título</string>
+    <string name="todo_description_label">Descrição</string>
+    <string name="todo_description_hint">Informe uma descrição</string>
+    <string name="todo_priority_label">Prioridade?</string>
+    <string name="todo_priority_true_value">Sim</string>
+    <string name="todo_priority_false_value">Não</string>
 
     <string name="save_button_text">Salvar</string>
     <string name="back_button_text">Voltar</string>
