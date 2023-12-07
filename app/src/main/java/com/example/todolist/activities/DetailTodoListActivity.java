@@ -8,6 +8,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.todolist.interfaces.ICheckBoxClickListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.example.todolist.R;
@@ -21,11 +23,13 @@ import com.example.todolist.writers.TodoWriter;
 import com.example.todolist.writers.TodoListWriter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
-public class DetailTodoListActivity extends AppCompatActivity implements IOnCardClickListener {
+public class DetailTodoListActivity extends AppCompatActivity implements IOnCardClickListener, ICheckBoxClickListener {
 
     private EditText editTextTodoListTitle, editTextTodoListDescription;
     private ImageButton deleteTodoListButton;
@@ -122,11 +126,22 @@ public class DetailTodoListActivity extends AppCompatActivity implements IOnCard
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         todoRecyclerView.setLayoutManager(manager);
         TodoAdapter adapter = new TodoAdapter(todos);
+        adapter.setCardClickListener(this);
+        adapter.setCheckBoxClickListener(this);
         todoRecyclerView.setAdapter(adapter);
     }
 
     @Override
     public void onCardClick(int position) {
-        // Implementar lógica de clique no cartão aqui
+
+    }
+
+    @Override
+    public void onCheckBoxClick(int position) {
+        Todo todo = this.todos.get(position);
+        todo.setFinished(!todo.getFinished());
+        Map<Integer, Todo> todoMap = this.todoReader.getEntities();
+        todoMap.put(todo.getId(), todo);
+        this.todoWriter.saveEntities(todoMap);
     }
 }
