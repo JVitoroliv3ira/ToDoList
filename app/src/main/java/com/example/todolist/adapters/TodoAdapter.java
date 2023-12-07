@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,11 +38,14 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         public TextView todoTitle;
         public TextView todoDescription;
         public CheckBox checkBox;
+
+        public ImageView imageView;
         public TodoViewHolder(@NonNull View v, final IOnCardClickListener cardClickListener, final ICheckBoxClickListener checkBoxClickListener) {
             super(v);
             this.todoTitle = v.findViewById(R.id.card_todo_title);
             this.todoDescription = v.findViewById(R.id.card_todo_description);
             this.checkBox = v.findViewById(R.id.todo_check_box);
+            this.imageView = v.findViewById(R.id.alert_icon);
             v.setOnClickListener(c -> {
                 if (cardClickListener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
                     cardClickListener.onCardClick(getAdapterPosition());
@@ -72,6 +76,9 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         holder.todoTitle.setText(todo.getTitle());
         holder.todoDescription.setText(todo.getDescription());
         holder.checkBox.setChecked(todo.getFinished());
+        if (!todo.getPriority()) {
+            holder.imageView.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override

@@ -51,6 +51,19 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="Descricao do Item" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|end"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:id="@+id/alert_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@android:drawable/ic_dialog_alert" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
