@@ -34,11 +34,13 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
         this.checkBoxClickListener = checkBoxClickListener;
     }
     public static class TodoViewHolder extends RecyclerView.ViewHolder {
-        public TextView listTitle;
+        public TextView todoTitle;
+        public TextView todoDescription;
         public CheckBox checkBox;
         public TodoViewHolder(@NonNull View v, final IOnCardClickListener cardClickListener, final ICheckBoxClickListener checkBoxClickListener) {
             super(v);
-            this.listTitle = v.findViewById(R.id.card_todo_title);
+            this.todoTitle = v.findViewById(R.id.card_todo_title);
+            this.todoDescription = v.findViewById(R.id.card_todo_description);
             this.checkBox = v.findViewById(R.id.todo_check_box);
             v.setOnClickListener(c -> {
                 if (cardClickListener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
@@ -67,7 +69,8 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoViewHolder
     @Override
     public void onBindViewHolder(@NonNull TodoViewHolder holder, int position) {
         Todo todo = this.todos.get(position);
-        holder.listTitle.setText(todo.getTitle());
+        holder.todoTitle.setText(todo.getTitle());
+        holder.todoDescription.setText(todo.getDescription());
         holder.checkBox.setChecked(todo.getFinished());
     }
 
