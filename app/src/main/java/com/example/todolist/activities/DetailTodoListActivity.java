@@ -133,7 +133,14 @@ public class DetailTodoListActivity extends AppCompatActivity implements IOnCard
 
     @Override
     public void onCardClick(int position) {
+        Todo todo = this.todos.get(position);
+        this.goToDetailTodoActivity(todo.getId());
+    }
 
+    private void goToDetailTodoActivity(Integer todoId) {
+        Intent intent = new Intent(this, DetailTodoActivity.class);
+        intent.putExtra("todoId", todoId);
+        startActivity(intent);
     }
 
     @Override

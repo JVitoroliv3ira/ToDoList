@@ -24,6 +24,7 @@
         <activity android:name=".activities.CreateTodoListActivity" />
         <activity android:name=".activities.DetailTodoListActivity" />
         <activity android:name=".activities.CreateTodoActivity" />
+        <activity android:name=".activities.DetailTodoActivity" />
     </application>
 
 </manifest>
